@@ -7,3 +7,9 @@ This project was given in the neural network course to help students better unde
 
 
 ## Implementation
+
+### Pre-processing
+Before constructing models, it needs to fully prepare the dataset, so as the first step, fields with null and nan values were removed. Then, the train test split step was done and information of the last 12 months was seperated from the rest of data and considered as test data. Moreover, as an important step to make learning models converge better, data is normalized by the min-max scaler method. 
+
+### Model Definition
+Generally, recurrent neural networks (RNNs) are one of the most effective methods when it comes to serial data. Gated Recurrent Units (GRU) are one types of RNN that help us to get rid of the [short-term memory problem]([https://www.google.com](https://medium.com/analytics-vidhya/undestanding-recurrent-neural-network-rnn-and-long-short-term-memory-lstm-30bc1221e80d)) which causes the model to forget earlier information it learned. In fact, it employs "gates" which determine what information in a sequence is beneficial to learn and keep enabling to pass essential information even in long series. Therefore, in order to tackle this problem, a GRU model with a GRU layer and a fully-connected layer was defined. This model then trained for 20 epochs with Adam optimizer. Finally, the model's prediction for the last 12 months are denormalized to be in the same scale as the lasbels and plotted.
